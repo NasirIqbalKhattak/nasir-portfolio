@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio — Nasir</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Personal portfolio showcasing projects, skills, and contact information.">
+    <link rel="preconnect" href="https://images.unsplash.com">
+</head>
+<body>
+
+    <header>
+        <div class="page-inner header-inner">
+            <div class="logo">
+                <a href="#home"><img src="logo.svg" alt="Nasir Iqbal Khttak logo"></a>
+            </div>
+            <button id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-label="Open menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="navbar">
+                <ul class="links-list">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <div class="page-inner">
+            <div>
+                <div class="welocome-message">
+                    <h1>Hi, I'm Nasir — I build beautiful web experiences</h1>
+                </div>
+                <div class="intorduction">
+                    <p>I design and develop responsive websites and web apps. I focus on clean interfaces, fast performance, and delightful interactions.</p>
+                    <p style="margin-top:12px;"><a href="#projects" style="color:var(--accent);">See my work →</a></p>
+                </div>
+            </div>
+
+            <div class="image">
+                <img src="profile-2.jpg" alt="portrait">
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="reveal" style="padding:36px 0;">
+        <div class="page-inner about-grid">
+            <div>
+                <h2>About Me</h2>
+                <p>I’m a front-end developer with a passion for building accessible and performant user interfaces. I enjoy turning ideas into polished products.</p>
+                <p style="margin-top:12px;color:var(--muted)">I work with modern JavaScript, CSS, and tooling. When I’m not coding I like photography and hiking.</p>
+            </div>
+            <div class="card">
+                <h3>Quick facts</h3>
+                <ul style="margin:12px 0 0 0;padding:0;list-style:none;color:var(--muted);">
+                    <li>Location:pakistan</li>
+                    <li>Availability: Open to work</li>
+                    <li>Experience: 1+ years</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="skills reveal">
+        <div class="page-inner">
+            <div class="intorduction">
+                <h2>My Skills</h2>
+            </div>
+            <div class="skills">
+                <ul>
+                    <li class="skill-card">
+                        <h3>JavaScript</h3>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="javascript">
+                    </li>
+                    <li class="skill-card">
+                        <h3>CSS</h3>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="css">
+                    </li>
+                    <li class="skill-card">
+                        <h3>HTML</h3>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="html5">
+                    </li>
+                    <li class="skill-card">
+                        <h3>Problem Solving</h3>
+                        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80" alt="problem solving">
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" style="padding:48px 0;">
+        <div class="page-inner">
+            <h2>Selected Projects</h2>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-top:16px;">
+                <article style="background:var(--card-bg);border-radius:12px;overflow:hidden;box-shadow:0 4px 16px rgba(15,23,42,0.06);">
+                    <img src="https://images.unsplash.com/photo-1505685296765-3a2736de412f?auto=format&fit=crop&w=1200&q=80" alt="UI Dashboard screenshot" style="width:100%;height:160px;object-fit:cover;">
+                    <div style="padding:16px;">
+                        <h3 style="margin:0 0 8px 0;">UI Dashboard</h3>
+                        <p style="margin:0;color:var(--muted);">A modular dashboard with charts and realtime updates.</p>
+                    </div>
+                </article>
+                <article style="background:var(--card-bg);border-radius:12px;overflow:hidden;box-shadow:0 4px 16px rgba(15,23,42,0.06);">
+                    <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=1200&q=80" alt="E-commerce UI screenshot - product grid" style="width:100%;height:160px;object-fit:cover;">
+                    <div style="padding:16px;">
+                        <h3 style="margin:0 0 8px 0;">E-commerce UI</h3>
+                        <p style="margin:0;color:var(--muted);">A fast, accessible product listing and checkout flow.</p>
+                    </div>
+                </article>
+                <article style="background:var(--card-bg);border-radius:12px;overflow:hidden;box-shadow:0 4px 16px rgba(15,23,42,0.06);">
+                    <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80" alt="project-3" style="width:100%;height:160px;object-fit:cover;">
+                    <div style="padding:16px;">
+                        <h3 style="margin:0 0 8px 0;">Landing Page</h3>
+                        <p style="margin:0;color:var(--muted);">A conversion-focused landing page with animations.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="reveal" style="padding:36px 0;">
+        <div class="page-inner">
+            <h2>Contact</h2>
+            <div style="margin-top:12px;display:flex;gap:20px;align-items:center;">
+                <div class="card contact-card" style="display:flex;flex-direction:column;gap:8px;">
+                    <a href="mailto:hello@nasir.devgm">niqbal12523@gmail.com</a>
+                    <a href="mailto:nasir.iqbal@example.com">nasiriqbalkhattak@gmail.com</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="page-inner">
+            <div class="footer-into">
+                <h2>© 2026 Nasir Iqbal Khttak — Built with care</h2>
+            </div>
+           
+            
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
