@@ -59,3 +59,71 @@ if (menuToggle && headerInner) {
     }
   });
 }
+
+// Open Gmail compose when clicking email links (fallback keeps mailto)
+document.querySelectorAll('.email-link').forEach(a => {
+  a.addEventListener('click', (e) => {
+    // prefer Gmail web compose in new tab
+    const email = a.dataset.email || a.getAttribute('href').replace('mailto:', '');
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}`;
+    // Try to open Gmail in new tab; if popup blocked user can still use mailto
+    window.open(gmailUrl, '_blank');
+    e.preventDefault();
+  });
+});
+
+// Phone popover: show WhatsApp or Call options
+let activePopover = null;
+function createPopover() {
+  const pop = document.createElement('div');
+  pop.className = 'phone-popover hidden';
+  pop.innerHTML = `
+    <button class="whatsapp" type="button">Message (WhatsApp)</button>
+    <div class="sep"></div>
+    <button class="call" type="button">Call</button>
+  `;
+  document.body.appendChild(pop);
+  return pop;
+}
+
+const popover = createPopover();
+
+document.querySelectorAll('.phone-link').forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const phone = link.dataset.phone || link.getAttribute('href').replace('tel:', '');
+    // position popover next to link
+    const rect = link.getBoundingClientRect();
+    popover.style.top = `${rect.bottom + window.scrollY + 8}px`;
+    popover.style.left = `${Math.min(rect.left + window.scrollX, window.innerWidth - 220)}px`;
+    popover.classList.remove('hidden');
+    activePopover = { popover, phone };
+  });
+});
+
+document.addEventListener('click', (e) => {
+  if (!activePopover) return;
+  const pop = activePopover.popover;
+  const phone = activePopover.phone;
+  if (pop.contains(e.target)) {
+    if (e.target.closest('button.whatsapp')) {
+      const num = phone.replace(/[^0-9+]/g, '');
+      const wa = `https://wa.me/${num.replace(/^\+/, '')}`;
+      window.open(wa, '_blank');
+      pop.classList.add('hidden');
+      activePopover = null;
+      return;
+    }
+    if (e.target.closest('button.call')) {
+      window.location.href = `tel:${phone}`;
+      pop.classList.add('hidden');
+      activePopover = null;
+      return;
+    }
+  }
+  // click outside -> hide
+  if (!e.target.closest('.phone-link')) {
+    pop.classList.add('hidden');
+    activePopover = null;
+  }
+});
