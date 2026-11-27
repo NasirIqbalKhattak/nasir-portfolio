@@ -473,13 +473,13 @@ article:hover {
 }
 
 /* Reveal on scroll */
-.reveal {
+.has-scroll-reveal .reveal {
 	opacity: 0;
 	transform: translateY(10px);
 	transition: opacity .6s ease, transform .6s ease;
 }
 
-.reveal.in-view {
+.has-scroll-reveal .reveal.in-view {
 	opacity: 1;
 	transform: translateY(0);
 }

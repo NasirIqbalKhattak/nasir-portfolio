@@ -22,6 +22,7 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+document.documentElement.classList.add('has-scroll-reveal');
 
 // small entrance for logo
 window.addEventListener('load', () => {
