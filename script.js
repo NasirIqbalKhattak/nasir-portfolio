@@ -59,26 +59,3 @@ if (menuToggle && headerInner) {
     }
   });
 }
-
-// Open Gmail compose when clicking email links (fallback keeps mailto)
-document.querySelectorAll('.email-link').forEach(a => {
-  a.addEventListener('click', (e) => {
-    // prefer Gmail web compose in new tab
-    const email = a.dataset.email || a.getAttribute('href').replace('mailto:', '');
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}`;
-    // Try to open Gmail in new tab; if popup blocked user can still use mailto
-    window.open(gmailUrl, '_blank');
-    e.preventDefault();
-  });
-});
-
-// Phone links: open WhatsApp directly (no call option)
-document.querySelectorAll('.phone-link').forEach(link => {
-  link.addEventListener('click', (e) => {
-    e.preventDefault();
-    const phone = link.dataset.phone || link.getAttribute('href');
-    const num = String(phone).replace(/[^0-9+]/g, '').replace(/^\+/, '');
-    const wa = `https://wa.me/${num}`;
-    window.open(wa, '_blank', 'noopener');
-  });
-});
